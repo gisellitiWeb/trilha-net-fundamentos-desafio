@@ -17,7 +17,17 @@ namespace DesafioFundamentos.Models
             // Implementado!
             Console.WriteLine("Digite a placa do veículo para estacionar:");
             string placa = Console.ReadLine();
-            veiculos.Add(placa);
+            bool jaExistente = false;
+            foreach (var veiculo in veiculos)
+            {
+                if(placa.Equals(veiculo)){
+                    Console.WriteLine($"o veículo {placa} já está estacionado");
+                    jaExistente = true;
+                }
+            }
+            if(!jaExistente){
+                    veiculos.Add(placa);
+                }
         }
 
         public void RemoverVeiculo()
